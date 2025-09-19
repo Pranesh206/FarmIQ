@@ -37,24 +37,3 @@ It integrates **AI/ML crop health detection**, **IoT-based soil monitoring**, an
 
 ---
 
-## 📂 Repository Structure
-FarmIQ/
-│── backend/ # FastAPI backend + AI model integration
-│ ├── app.py
-│ ├── models/ # Trained ML models
-│ ├── requirements.txt
-│
-│── ai/ # AI/ML Notebooks & Scripts
-│ ├── crop_disease_model.ipynb
-│ ├── yield_prediction.ipynb
-│
-│── iot/ # IoT Firmware
-│ ├── firmware.ino
-│
-│── mobile/ # Flutter Mobile App
-│ ├── lib/
-│ ├── pubspec.yaml
-│
-│── docs/ # Documentation & Pitch Deck
-│ ├── architecture.png
-│ ├── pitch-deck.pdf

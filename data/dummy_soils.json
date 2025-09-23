@@ -1,0 +1,34 @@
+{
+  "loamy": {
+    "npk": [15, 20, 10],
+    "ph": 6.5,
+    "nutrients": "Good organic matter, medium fertility",
+    "water_holding": 70,
+    "carbon_footprint": 12,
+    "recommendation": "Balanced fertilizer; add lime if pH <6"
+  },
+  "sandy": {
+    "npk": [10, 15, 5],
+    "ph": 7.0,
+    "nutrients": "Low nitrogen, good drainage",
+    "water_holding": 40,
+    "carbon_footprint": 8,
+    "recommendation": "Increase organic manure; frequent irrigation"
+  },
+  "clay": {
+    "npk": [20, 10, 15],
+    "ph": 5.8,
+    "nutrients": "High potassium, poor drainage",
+    "water_holding": 85,
+    "carbon_footprint": 18,
+    "recommendation": "Gypsum for drainage; avoid waterlogging"
+  },
+  "alluvial": {
+    "npk": [18, 18, 12],
+    "ph": 6.8,
+    "nutrients": "Fertile, suitable for rice",
+    "water_holding": 65,
+    "carbon_footprint": 10,
+    "recommendation": "Standard NPK; monitor salinity"
+  }
+}

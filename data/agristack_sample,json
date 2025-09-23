@@ -1,0 +1,40 @@
+{
+  "farmers": [
+    {
+      "farmer_id": "FID001",
+      "name": "Anonymized Farmer 1",
+      "state": "Punjab",
+      "district": "Ludhiana",
+      "soil_health_card": {
+        "issued_date": "2023-06-01",
+        "npk": [15, 20, 10],
+        "ph": 6.5,
+        "micronutrients": {"zinc": "deficient", "iron": "adequate"},
+        "recommendations": "Apply zinc sulfate 25kg/ha"
+      },
+      "consent_given": true,
+      "data_usage": "Advisory only"
+    },
+    {
+      "farmer_id": "FID002",
+      "name": "Anonymized Farmer 2",
+      "state": "UP",
+      "district": "Lucknow",
+      "soil_health_card": {
+        "issued_date": "2023-05-15",
+        "npk": [10, 15, 5],
+        "ph": 7.0,
+        "micronutrients": {"zinc": "adequate", "iron": "deficient"},
+        "recommendations": "Balanced NPK application"
+      },
+      "consent_given": true,
+      "data_usage": "Research and advisory"
+    }
+  ],
+  "metadata": {
+    "source": "Mock AgriStack API",
+    "version": "1.0",
+    "anonymized": true,
+    "total_farmers": 1000000  
+  }
+}

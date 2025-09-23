@@ -73,7 +73,7 @@
 
 <div class="row">
     <!-- Weather Chart -->
-    <div class="col-lg-6">
+    <div class="col-lg-4">
         <div class="card mb-4">
             <div class="card-header">
                 <h5 class="card-title" data-translate="weather">Weather Forecast</h5>
@@ -87,7 +87,7 @@
     </div>
 
     <!-- Soil Health Chart -->
-    <div class="col-lg-6">
+    <div class="col-lg-4">
         <div class="card mb-4">
             <div class="card-header">
                 <h5 class="card-title" data-translate="soil_health">Soil Health Analysis</h5>
@@ -95,6 +95,20 @@
             <div class="card-body">
                 <div class="chart-container">
                     <canvas id="soilHealthChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pest Chart (from dev) -->
+    <div class="col-lg-4">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="card-title" data-translate="pest_chart">Pest Risk Chart</h5>
+            </div>
+            <div class="card-body">
+                <div class="chart-container">
+                    <canvas id="pestChart" width="400" height="200"></canvas>
                 </div>
             </div>
         </div>
@@ -114,7 +128,20 @@
                         <div class="recommendation-card card mb-3">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
-                                    <i class="fas fa-tint recommendation-icon"></i>
+                                    <i class="fas fa-seedling text-success recommendation-icon me-3"></i>
+                                    <div>
+                                        <h6 data-translate="sowing">Sowing</h6>
+                                        <p class="mb-0">{{ recs.sowing }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="recommendation-card card mb-3">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-tint text-info recommendation-icon me-3"></i>
                                     <div>
                                         <h6 data-translate="irrigation">Irrigation</h6>
                                         <p class="mb-0">{{ recs.irrigation }}</p>
@@ -127,4 +154,108 @@
                         <div class="recommendation-card card mb-3">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
-                                    <i class="fas fa-
+                                    <i class="fas fa-flask text-warning recommendation-icon me-3"></i>
+                                    <div>
+                                        <h6 data-translate="fertilizer">Fertilizer</h6>
+                                        <p class="mb-0">{{ recs.fertilizer }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="recommendation-card card mb-3">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-bug text-danger recommendation-icon me-3"></i>
+                                    <div>
+                                        <h6 data-translate="pest_risk">Pest Risk</h6>
+                                        <p class="mb-0">{{ recs.pest_risk }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="recommendation-card card mb-3">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-cloud text-secondary recommendation-icon me-3"></i>
+                                    <div>
+                                        <h6 data-translate="climate">Climate</h6>
+                                        <p class="mb-0">{{ recs.climate or 'N/A' }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="recommendation-card card mb-3">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-leaf text-success recommendation-icon me-3"></i>
+                                    <div>
+                                        <h6 data-translate="sustainability">Sustainability</h6>
+                                        <p class="mb-0">Carbon: {{ recs.sustainability.carbon_footprint }}kg<br>Tip: {{ recs.sustainability.tip }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    <a href="/advice/irrigation" class="btn btn-info" data-translate="more_advice">More Advice</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- System Status (from dev) -->
+    <div class="col-lg-4">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="card-title">System Status</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled">
+                    {% for key, value in status.items() %}
+                    <li class="mb-2">
+                        <strong>{{ key }}:</strong>
+                        <span class="badge bg-success ms-2">{{ value }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Interactive Buttons (from dev) -->
+<div class="row">
+    <div class="col-12 text-center">
+        <!-- Language Toggle -->
+        <button id="toggle-lang" class="btn btn-secondary me-2">Switch to Hindi</button>
+        <!-- Voice Advice -->
+        <button id="voice-advice" class="btn btn-success">Read Advice Aloud</button>
+    </div>
+</div>
+
+<!-- Include JS for charts and dev features (assume Chart.js is in base.html or add it) -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='js/dev_dashboard.js') }}"></script>
+
+<!-- Optional: Inline script placeholders for charts (expand in dev_dashboard.js) -->
+<script>
+    // Weather Chart Placeholder
+    const weatherCtx = document.getElementById('weatherChart').getContext('2d');
+    new Chart(weatherCtx, { type: 'line', data: { /* Add data here */ } });
+
+    // Soil Health Chart Placeholder
+    const soilCtx = document.getElementById('soilHealthChart').getContext('2d');
+    new Chart(soilCtx, { type: 'bar', data: { /* Add data here */ } });
+
+    // Pest Chart Placeholder
+    const pestCtx = document.getElementById('pestChart').getContext('2d');
+    new Chart(pestCtx, { type: 'doughnut', data: { /* Add data here */ } });
+</script>
+{% endblock %}

@@ -40,7 +40,10 @@ jobs:
     - name: Run tests
       env:
         DATABASE_URL: postgresql://postgres:postgres@localhost:5432/test_farmiq
-      run: pytest test_backend.py test_data.py -v  # [DEPLOY] Run backend/data tests
+      run: |
+        pytest test_backend.py test_data.py -v  # [DEPLOY] Run backend/data tests
+        pytest -v
+        pytest tests/ -v
     
     - name: Lint code
       uses: pre-commit/action@v3.0.1  # Optional: Add pre-commit for linting

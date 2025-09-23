@@ -7,7 +7,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-class PestPredictor:
+class MLPredictor:
     def __init__(self):
         self.model = self._train_model()
     

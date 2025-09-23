@@ -9,7 +9,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pre-commit/action@v3.0.1
     services:
       postgres:
         image: postgres:13
@@ -85,3 +87,4 @@ jobs:
         heroku_app_name: "farmiq-hackathon"  # Your app name
         heroku_email: "your-email@example.com"
         appdir: "/"
+

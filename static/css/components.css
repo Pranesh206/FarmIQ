@@ -1,0 +1,138 @@
+/* Component-specific styles */
+
+/* Weather Widget */
+.weather-widget {
+  background: linear-gradient(135deg, #64b5f6, #90caf9);
+  color: white;
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.weather-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.weather-temp {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.weather-details {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Recommendation Card */
+.recommendation-card {
+  border-left: 4px solid var(--primary-color);
+}
+
+.recommendation-icon {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-right: 1rem;
+}
+
+/* Sensor Status */
+.sensor-status {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  background-color: #f8f9fa;
+  margin-bottom: 0.5rem;
+}
+
+.sensor-icon {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  color: var(--text-secondary);
+}
+
+.sensor-value {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+}
+
+/* Language Toggle */
+.language-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lang-btn {
+  padding: 0.5rem 1rem;
+  border: 2px solid #e0e0e0;
+  background: white;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.lang-btn.active {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.lang-btn:hover:not(.active) {
+  border-color: var(--primary-color);
+}
+
+/* Voice Control */
+.voice-controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.voice-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.voice-btn:hover {
+  transform: scale(1.1);
+  background: var(--secondary-color);
+}
+
+/* Chart Container */
+.chart-container {
+  position: relative;
+  height: 300px;
+  margin: 1rem 0;
+}
+
+/* Notification Bell */
+.notification-bell {
+  position: relative;
+  cursor: pointer;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: var(--danger);
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

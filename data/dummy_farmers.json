@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "username": "farmer1",
+    "crop": "rice",
+    "location": "Punjab",
+    "soil_type": "loamy",
+    "farm_size": 5.0,
+    "history": ["2023: Good yield 4 tons/ha", "2022: Pest issue, yield 2.5 tons/ha"],
+    "consent_agristack": true
+  },
+  {
+    "id": 2,
+    "username": "farmer2",
+    "crop": "wheat",
+    "location": "UP",
+    "soil_type": "sandy",
+    "farm_size": 3.2,
+    "history": ["2023: Average yield 3 tons/ha", "2022: Drought affected"],
+    "consent_agristack": true
+  },
+  {
+    "id": 3,
+    "username": "farmer3",
+    "crop": "rice",
+    "location": "Maharashtra",
+    "soil_type": "clay",
+    "farm_size": 7.5,
+    "history": ["2023: High yield 5.2 tons/ha with recommendations"],
+    "consent_agristack": false
+  },
+  {
+    "id": 4,
+    "username": "farmer4",
+    "crop": "wheat",
+    "location": "Punjab",
+    "soil_type": "loamy",
+    "farm_size": 4.0,
+    "history": ["2023: Pest risk high, used IPM"],
+    "consent_agristack": true
+  },
+  {
+    "id": 5,
+    "username": "farmer5",
+    "crop": "cotton",
+    "location": "Gujarat",
+    "soil_type": "sandy",
+    "farm_size": 6.0,
+    "history": ["2023: Water conservation saved 20%"],
+    "consent_agristack": true
+  }
+]

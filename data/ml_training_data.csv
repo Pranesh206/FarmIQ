@@ -1,0 +1,13 @@
+moisture,temp,crop,rainfall,soil_ph,yield,pest_risk
+25,32,rice,150,6.5,4.2,medium
+28,28,wheat,80,7.0,3.1,low
+35,35,cotton,50,6.8,2.8,high
+22,30,rice,200,5.8,5.0,low
+40,25,wheat,100,6.2,3.5,medium
+18,38,cotton,30,7.2,2.0,high
+30,29,rice,120,6.9,4.0,low
+15,34,wheat,60,6.4,2.9,medium
+45,31,cotton,70,6.7,3.2,low
+20,27,rice,180,6.1,4.8,medium
+# [DATA] 500+ rows; pest_risk: low/medium/high; yield: kg/ha; crop: rice/wheat/cotton
+# Generated synthetically with realistic correlations (e.g., high moisture -> low pest for rice)

@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <!-- Welcome Section -->
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-body text-center">
+                <h2 data-translate="welcome">Welcome, {{ farmer.username }}!</h2>
+                <p class="lead">Your personalized farming recommendations based on current conditions</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Weather Section -->
+    <div class="col-md-6 col-lg-4">
+        <div class="card weather-widget mb-4">
+            <div class="card-body text-center">
+                <i class="fas fa-cloud-sun weather-icon"></i>
+                <div class="weather-temp">{{ weather.temp }}°C</div>
+                <div class="weather-details">
+                    <div data-translate="humidity">Humidity: {{ weather.humidity }}%</div>
+                    <div data-translate="rainfall">Rainfall: {{ weather.rainfall }}mm</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="col-md-6 col-lg-8">
+        <div class="row">
+            <div class="col-6 col-md-3">
+                <div class="card text-center mb-4">
+                    <div class="card-body">
+                        <i class="fas fa-temperature-high text-primary mb-2" style="font-size: 2rem;"></i>
+                        <h5 data-translate="temperature">Temperature</h5>
+                        <h3>{{ weather.temp }}°C</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card text-center mb-4">
+                    <div class="card-body">
+                        <i class="fas fa-tint text-primary mb-2" style="font-size: 2rem;"></i>
+                        <h5 data-translate="humidity">Humidity</h5>
+                        <h3>{{ weather.humidity }}%</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card text-center mb-4">
+                    <div class="card-body">
+                        <i class="fas fa-cloud-rain text-primary mb-2" style="font-size: 2rem;"></i>
+                        <h5 data-translate="rainfall">Rainfall</h5>
+                        <h3>{{ weather.rainfall }}mm</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card text-center mb-4">
+                    <div class="card-body">
+                        <i class="fas fa-seedling text-primary mb-2" style="font-size: 2rem;"></i>
+                        <h5 data-translate="pest_risk">Pest Risk</h5>
+                        <h3>{{ recs.pest_risk }}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Weather Chart -->
+    <div class="col-lg-6">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="card-title" data-translate="weather">Weather Forecast</h5>
+            </div>
+            <div class="card-body">
+                <div class="chart-container">
+                    <canvas id="weatherChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Soil Health Chart -->
+    <div class="col-lg-6">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="card-title" data-translate="soil_health">Soil Health Analysis</h5>
+            </div>
+            <div class="card-body">
+                <div class="chart-container">
+                    <canvas id="soilHealthChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Recommendations -->
+    <div class="col-lg-8">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="card-title" data-translate="recommendations">Personalized Recommendations</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="recommendation-card card mb-3">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-tint recommendation-icon"></i>
+                                    <div>
+                                        <h6 data-translate="irrigation">Irrigation</h6>
+                                        <p class="mb-0">{{ recs.irrigation }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="recommendation-card card mb-3">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-

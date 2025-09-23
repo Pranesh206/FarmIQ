@@ -25,7 +25,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - uses: pre-commit/action@v3.0.1
 
     
     - name: Set up Python
@@ -44,7 +43,7 @@ jobs:
       run: pytest test_backend.py test_data.py -v  # [DEPLOY] Run backend/data tests
     
     - name: Lint code
-      uses: pre-commit/action@v3  # Optional: Add pre-commit for linting
+      uses: pre-commit/action@v3.0.1  # Optional: Add pre-commit for linting
 
   build-docker:
     needs: test

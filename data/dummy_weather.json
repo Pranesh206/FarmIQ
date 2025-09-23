@@ -1,0 +1,43 @@
+{
+  "Punjab": {
+    "temp": 32,
+    "rainfall": 150,
+    "humidity": 70,
+    "wind_speed": 10,
+    "forecast": "Monsoon likely",
+    "sustainability": {"water_index": "high"}
+  },
+  "UP": {
+    "temp": 28,
+    "rainfall": 80,
+    "humidity": 60,
+    "wind_speed": 8,
+    "forecast": "Partly cloudy",
+    "sustainability": {"water_index": "medium"}
+  },
+  "Maharashtra": {
+    "temp": 35,
+    "rainfall": 200,
+    "humidity": 75,
+    "wind_speed": 12,
+    "forecast": "Heavy rain expected",
+    "sustainability": {"water_index": "very high"}
+  },
+  "Gujarat": {
+    "temp": 38,
+    "rainfall": 50,
+    "humidity": 55,
+    "wind_speed": 15,
+    "forecast": "Dry and hot",
+    "sustainability": {"water_index": "low"}
+  },
+  "Kerala": {
+    "temp": 30,
+    "rainfall": 300,
+    "humidity": 85,
+    "wind_speed": 5,
+    "forecast": "Tropical wet",
+    "sustainability": {"water_index": "excess"}
+  }
+  
+}

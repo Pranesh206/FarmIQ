@@ -1,3 +1,0 @@
-web: gunicorn --bind 0.0.0.0:$PORT wsgi:app
-release: python scripts/migrate_db.sh  # [DEPLOY] Run DB migrations on deploy
-worker: celery worker --app=app.celery  # Placeholder for future tasks

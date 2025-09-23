@@ -2,12 +2,11 @@ from flask import Flask, render_template, request, jsonify, session, redirect, u
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from api.auth import UserAuth
-from api.endpoints import api_bp
+from api.endpoints import api_bp, post_recommendations
 from models.database import db, Farmer, RecommendationLog
-from models.ml_model import MLPredictor
-from models.rules_engine import get_recommendations
-from utils.cache 
-import cache
+# from models.ml_model import MLPredictor  # Uncomment if module exists
+# from models.rules_engine import get_recommendations  # Uncomment if module exists
+# import cache  # Uncomment if module exists
 import json
 import logging
 from config import config
@@ -98,7 +97,7 @@ def dashboard():
         return redirect(url_for('register'))
     
     # [BACKEND] Cached data fetch
-    @cache.cached(timeout=300)  # 5 min cache
+    # @cache.cached(timeout=300)  # 5 min cache
     def get_cached_data(location):
         with open('data/dummy_weather.json', 'r') as f:
             weather = json.load(f)[location]
@@ -111,10 +110,10 @@ def dashboard():
     weather, sensors, soils = get_cached_data(farmer.location)
     
     # Recommendations
-    recs = get_recommendations(farmer.crop, farmer.soil_type, weather, sensors, soils)
+    recs = post_recommendations(farmer.crop, farmer.soil_type, weather, sensors, soils)
     
     # [BACKEND] ML Predictions
-    predictor = MLPredictor()
+    predictor = predictor()
     pest_risk = predictor.predict_pest_risk(sensors['moisture'], weather['temp'], farmer.crop)
     yield_pred = predictor.predict_yield(weather['rainfall'], sensors['moisture'], farmer.crop)
     
@@ -162,8 +161,8 @@ from flask_sqlalchemy import SQLAlchemy
 import json
 import pandas as pd
 import logging  # [DEV] For debug logging
-from models.ml_model import PestPredictor
-from models.rules_engine import get_recommendations
+# from models.ml_model import PestPredictor  # Uncomment if module exists
+# from models.rules_engine import get_recommendations  # Uncomment if module exists
 from config import Config
 from datetime import datetime
 
@@ -245,15 +244,16 @@ def dashboard():
         soils = json.load(f)[farmer.soil_type]
     
     # Get recommendations (enhanced in rules_engine)
-    recs = get_recommendations(farmer.crop, farmer.soil_type, weather, sensors, soils)
+    # recs = get_recommendations(farmer.crop, farmer.soil_type, weather, sensors, soils)  # Uncomment if available
     
     # ML Pest prediction (with logging)
-    predictor = PestPredictor()
-    pest_risk = predictor.predict_pest_risk(sensors['moisture'], weather['temp'], farmer.crop)
-    logger.debug(f"[DEV] Pest risk prediction: {pest_risk}")
+    # predictor = PestPredictor()
+    # pest_risk = predictor.predict_pest_risk(sensors['moisture'], weather['temp'], farmer.crop)
+    # logger.debug(f"[DEV] Pest risk prediction: {pest_risk}")
     
-    recs['pest_risk'] = pest_risk
-    recs['sustainability'] = {'water_saved': 20, 'carbon_footprint': 15, 'tip': 'Use organic fertilizers to reduce carbon by 10%.'}
+    # recs['pest_risk'] = pest_risk
+    # recs['sustainability'] = {'water_saved': 20, 'carbon_footprint': 15, 'tip': 'Use organic fertilizers to reduce carbon by 10%.'}
+    recs = {'sustainability': {'water_saved': 20, 'carbon_footprint': 15, 'tip': 'Use organic fertilizers to reduce carbon by 10%.'}}
     
     # [DEV] Integration status (mock connected sources)
     status = {
